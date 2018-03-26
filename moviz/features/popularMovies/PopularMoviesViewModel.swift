@@ -9,6 +9,7 @@
 protocol PopularMoviesViewModel {
 
     var popularMovies: [String] { get set }
+    var title: String { get }
 
     func loadPopularMovies()
 }

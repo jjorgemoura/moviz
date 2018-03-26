@@ -9,6 +9,7 @@
 class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
 
     var popularMovies: [String] = [String]()
+    let title: String = "Popular Movies"
 
     func loadPopularMovies() {
         popularMovies = ["James Bond", "Indiana Jones", "Star Wars"]

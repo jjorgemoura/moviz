@@ -6,4 +6,8 @@
 //  Copyright © 2018 Jorge Moura. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class MovieViewController: UIViewController {
+
+}

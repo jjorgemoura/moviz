@@ -19,6 +19,7 @@ class PopularMoviesViewController: UITableViewController {
             tableView.register(PopularMoviesTableViewCell.self, forCellReuseIdentifier: PopularMoviesTableViewCell.cellIdentifier)
         }
 
+        title = viewModel?.title
         viewModel?.loadPopularMovies()
     }
 
@@ -35,4 +36,8 @@ class PopularMoviesViewController: UITableViewController {
     }
 
     // MARK: - UITableViewDelegate Methods
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    }
 }
