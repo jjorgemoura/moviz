@@ -1,0 +1,643 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B4B00306206989CE00D0BE8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B00305206989CE00D0BE8A /* AppDelegate.swift */; };
+		B4B0030E206989CE00D0BE8A /* moviz.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4B0030C206989CE00D0BE8A /* moviz.xcdatamodeld */; };
+		B4B00310206989CE00D0BE8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4B0030F206989CE00D0BE8A /* Assets.xcassets */; };
+		B4B00313206989CE00D0BE8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B00311206989CE00D0BE8A /* LaunchScreen.storyboard */; };
+		B4B0031E206989CE00D0BE8A /* MovizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B0031D206989CE00D0BE8A /* MovizTests.swift */; };
+		B4B00329206989CE00D0BE8A /* MovizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B00328206989CE00D0BE8A /* MovizUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B4B0031A206989CE00D0BE8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4B002FA206989CE00D0BE8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4B00301206989CE00D0BE8A;
+			remoteInfo = moviz;
+		};
+		B4B00325206989CE00D0BE8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4B002FA206989CE00D0BE8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4B00301206989CE00D0BE8A;
+			remoteInfo = moviz;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B4B00302206989CE00D0BE8A /* moviz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moviz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4B00305206989CE00D0BE8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B4B0030D206989CE00D0BE8A /* moviz.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = moviz.xcdatamodel; sourceTree = "<group>"; };
+		B4B0030F206989CE00D0BE8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B4B00312206989CE00D0BE8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B4B00314206989CE00D0BE8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4B00319206989CE00D0BE8A /* movizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = movizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4B0031D206989CE00D0BE8A /* MovizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovizTests.swift; sourceTree = "<group>"; };
+		B4B0031F206989CE00D0BE8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4B00324206989CE00D0BE8A /* movizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = movizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4B00328206989CE00D0BE8A /* MovizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovizUITests.swift; sourceTree = "<group>"; };
+		B4B0032A206989CE00D0BE8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B4B002FF206989CE00D0BE8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4B00316206989CE00D0BE8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4B00321206989CE00D0BE8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B4A62CF020698C1100C757E4 /* features */ = {
+			isa = PBXGroup;
+			children = (
+				B4A62CF220698C5000C757E4 /* homepage */,
+			);
+			path = features;
+			sourceTree = "<group>";
+		};
+		B4A62CF120698C2D00C757E4 /* services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
+		B4A62CF220698C5000C757E4 /* homepage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = homepage;
+			sourceTree = "<group>";
+		};
+		B4A62CF320698C5D00C757E4 /* others */ = {
+			isa = PBXGroup;
+			children = (
+				B4A62CF520698CB500C757E4 /* db */,
+				B4B00305206989CE00D0BE8A /* AppDelegate.swift */,
+				B4B00314206989CE00D0BE8A /* Info.plist */,
+			);
+			path = others;
+			sourceTree = "<group>";
+		};
+		B4A62CF420698C8700C757E4 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				B4B0030F206989CE00D0BE8A /* Assets.xcassets */,
+				B4B00311206989CE00D0BE8A /* LaunchScreen.storyboard */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		B4A62CF520698CB500C757E4 /* db */ = {
+			isa = PBXGroup;
+			children = (
+				B4B0030C206989CE00D0BE8A /* moviz.xcdatamodeld */,
+			);
+			path = db;
+			sourceTree = "<group>";
+		};
+		B4B002F9206989CE00D0BE8A = {
+			isa = PBXGroup;
+			children = (
+				B4B00304206989CE00D0BE8A /* moviz */,
+				B4B0031C206989CE00D0BE8A /* movizTests */,
+				B4B00327206989CE00D0BE8A /* movizUITests */,
+				B4B00303206989CE00D0BE8A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B4B00303206989CE00D0BE8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4B00302206989CE00D0BE8A /* moviz.app */,
+				B4B00319206989CE00D0BE8A /* movizTests.xctest */,
+				B4B00324206989CE00D0BE8A /* movizUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4B00304206989CE00D0BE8A /* moviz */ = {
+			isa = PBXGroup;
+			children = (
+				B4A62CF120698C2D00C757E4 /* services */,
+				B4A62CF020698C1100C757E4 /* features */,
+				B4A62CF320698C5D00C757E4 /* others */,
+				B4A62CF420698C8700C757E4 /* resources */,
+			);
+			path = moviz;
+			sourceTree = "<group>";
+		};
+		B4B0031C206989CE00D0BE8A /* movizTests */ = {
+			isa = PBXGroup;
+			children = (
+				B4B0031D206989CE00D0BE8A /* MovizTests.swift */,
+				B4B0031F206989CE00D0BE8A /* Info.plist */,
+			);
+			path = movizTests;
+			sourceTree = "<group>";
+		};
+		B4B00327206989CE00D0BE8A /* movizUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B4B00328206989CE00D0BE8A /* MovizUITests.swift */,
+				B4B0032A206989CE00D0BE8A /* Info.plist */,
+			);
+			path = movizUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B4B00301206989CE00D0BE8A /* moviz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4B0032D206989CE00D0BE8A /* Build configuration list for PBXNativeTarget "moviz" */;
+			buildPhases = (
+				B4B002FE206989CE00D0BE8A /* Sources */,
+				B4B002FF206989CE00D0BE8A /* Frameworks */,
+				B4B00300206989CE00D0BE8A /* Resources */,
+				B4A62CEE20698B9000C757E4 /* ShellScript */,
+				B4A62CEF20698BA700C757E4 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = moviz;
+			productName = moviz;
+			productReference = B4B00302206989CE00D0BE8A /* moviz.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B4B00318206989CE00D0BE8A /* movizTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4B00330206989CE00D0BE8A /* Build configuration list for PBXNativeTarget "movizTests" */;
+			buildPhases = (
+				B4B00315206989CE00D0BE8A /* Sources */,
+				B4B00316206989CE00D0BE8A /* Frameworks */,
+				B4B00317206989CE00D0BE8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B4B0031B206989CE00D0BE8A /* PBXTargetDependency */,
+			);
+			name = movizTests;
+			productName = movizTests;
+			productReference = B4B00319206989CE00D0BE8A /* movizTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B4B00323206989CE00D0BE8A /* movizUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4B00333206989CE00D0BE8A /* Build configuration list for PBXNativeTarget "movizUITests" */;
+			buildPhases = (
+				B4B00320206989CE00D0BE8A /* Sources */,
+				B4B00321206989CE00D0BE8A /* Frameworks */,
+				B4B00322206989CE00D0BE8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B4B00326206989CE00D0BE8A /* PBXTargetDependency */,
+			);
+			name = movizUITests;
+			productName = movizUITests;
+			productReference = B4B00324206989CE00D0BE8A /* movizUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B4B002FA206989CE00D0BE8A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Jorge Moura";
+				TargetAttributes = {
+					B4B00301206989CE00D0BE8A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					B4B00318206989CE00D0BE8A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B4B00301206989CE00D0BE8A;
+					};
+					B4B00323206989CE00D0BE8A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B4B00301206989CE00D0BE8A;
+					};
+				};
+			};
+			buildConfigurationList = B4B002FD206989CE00D0BE8A /* Build configuration list for PBXProject "moviz" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B4B002F9206989CE00D0BE8A;
+			productRefGroup = B4B00303206989CE00D0BE8A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B4B00301206989CE00D0BE8A /* moviz */,
+				B4B00318206989CE00D0BE8A /* movizTests */,
+				B4B00323206989CE00D0BE8A /* movizUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B4B00300206989CE00D0BE8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4B00313206989CE00D0BE8A /* LaunchScreen.storyboard in Resources */,
+				B4B00310206989CE00D0BE8A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4B00317206989CE00D0BE8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4B00322206989CE00D0BE8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B4A62CEE20698B9000C757E4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		B4A62CEF20698BA700C757E4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B4B002FE206989CE00D0BE8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4B0030E206989CE00D0BE8A /* moviz.xcdatamodeld in Sources */,
+				B4B00306206989CE00D0BE8A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4B00315206989CE00D0BE8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4B0031E206989CE00D0BE8A /* MovizTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4B00320206989CE00D0BE8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4B00329206989CE00D0BE8A /* MovizUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B4B0031B206989CE00D0BE8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4B00301206989CE00D0BE8A /* moviz */;
+			targetProxy = B4B0031A206989CE00D0BE8A /* PBXContainerItemProxy */;
+		};
+		B4B00326206989CE00D0BE8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4B00301206989CE00D0BE8A /* moviz */;
+			targetProxy = B4B00325206989CE00D0BE8A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B4B00311206989CE00D0BE8A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4B00312206989CE00D0BE8A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B4B0032B206989CE00D0BE8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B4B0032C206989CE00D0BE8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B4B0032E206989CE00D0BE8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6CHZFW8V57;
+				INFOPLIST_FILE = moviz/others/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jjorgemoura.moviz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B4B0032F206989CE00D0BE8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6CHZFW8V57;
+				INFOPLIST_FILE = moviz/others/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jjorgemoura.moviz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B4B00331206989CE00D0BE8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6CHZFW8V57;
+				INFOPLIST_FILE = movizTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jjorgemoura.movizTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/moviz.app/moviz";
+			};
+			name = Debug;
+		};
+		B4B00332206989CE00D0BE8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6CHZFW8V57;
+				INFOPLIST_FILE = movizTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jjorgemoura.movizTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/moviz.app/moviz";
+			};
+			name = Release;
+		};
+		B4B00334206989CE00D0BE8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6CHZFW8V57;
+				INFOPLIST_FILE = movizUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jjorgemoura.movizUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = moviz;
+			};
+			name = Debug;
+		};
+		B4B00335206989CE00D0BE8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6CHZFW8V57;
+				INFOPLIST_FILE = movizUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jjorgemoura.movizUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = moviz;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B4B002FD206989CE00D0BE8A /* Build configuration list for PBXProject "moviz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4B0032B206989CE00D0BE8A /* Debug */,
+				B4B0032C206989CE00D0BE8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4B0032D206989CE00D0BE8A /* Build configuration list for PBXNativeTarget "moviz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4B0032E206989CE00D0BE8A /* Debug */,
+				B4B0032F206989CE00D0BE8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4B00330206989CE00D0BE8A /* Build configuration list for PBXNativeTarget "movizTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4B00331206989CE00D0BE8A /* Debug */,
+				B4B00332206989CE00D0BE8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4B00333206989CE00D0BE8A /* Build configuration list for PBXNativeTarget "movizUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4B00334206989CE00D0BE8A /* Debug */,
+				B4B00335206989CE00D0BE8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B4B0030C206989CE00D0BE8A /* moviz.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B4B0030D206989CE00D0BE8A /* moviz.xcdatamodel */,
+			);
+			currentVersion = B4B0030D206989CE00D0BE8A /* moviz.xcdatamodel */;
+			path = moviz.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B4B002FA206989CE00D0BE8A /* Project object */;
+}
