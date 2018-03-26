@@ -45,7 +45,6 @@ opt_in_rules:
  - vertical_parameter_alignment_on_call
 
 excluded:
-  - Pods
   - Carthage
 
 line_length: 200
@@ -56,16 +55,7 @@ identifier_name:
   excluded:
     - T
     - URL
+    - id
 type_name:
   excluded:
     - T
-
-# file_header:
-#   required_pattern: |
-#                     \/\/
-#                     \/\/  .*?\.swift
-#                     \/\/  toscoz
-#                     \/\/
-#                     \/\/  Created by .*? on \d{1,2}\/\d{1,2}\/\d{2}\.
-#                     \/\/  Copyright © \d{4} Jorge Moura\. All rights reserved\.
-#                     \/\/
