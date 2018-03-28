@@ -8,8 +8,10 @@
 
 protocol PopularMoviesViewModel {
 
-    var popularMovies: [String] { get set }
+    var popularMovies: [FilmViewModel] { get set }
     var title: String { get }
+    weak var delegate: PopularMoviesViewModelDelegate? { get set }
 
     func loadPopularMovies()
+//    func loadPosterImage(with url: String)
 }

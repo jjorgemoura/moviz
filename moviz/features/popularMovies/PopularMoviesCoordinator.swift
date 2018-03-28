@@ -20,6 +20,7 @@ class PopularMoviesCoordinator: Coordinator, Navigationable {
 
     func start() {
         popularMoviesViewController.viewModel = popularMoviesViewModel
+        popularMoviesViewModel.delegate = popularMoviesViewController
         navigationController.pushViewController(popularMoviesViewController, animated: true)
     }
 }

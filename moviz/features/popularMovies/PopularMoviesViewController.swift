@@ -16,7 +16,8 @@ class PopularMoviesViewController: UITableViewController {
         super.viewDidLoad()
 
         if let tableView = view as? UITableView {
-            tableView.register(PopularMoviesTableViewCell.self, forCellReuseIdentifier: PopularMoviesTableViewCell.cellIdentifier)
+            let cellNibType = String(describing: PopularMoviesTableViewCell.self)
+            tableView.register(UINib(nibName: cellNibType, bundle: nil), forCellReuseIdentifier: PopularMoviesTableViewCell.cellIdentifier)
         }
 
         title = viewModel?.title
@@ -30,8 +31,16 @@ class PopularMoviesViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PopularMoviesTableViewCell.cellIdentifier, for: indexPath)
-        cell.textLabel?.text = viewModel?.popularMovies[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PopularMoviesTableViewCell.cellIdentifier, for: indexPath) as? PopularMoviesTableViewCell else {
+            return UITableViewCell()
+        }
+
+        if let item = viewModel?.popularMovies[indexPath.row] {
+            if item.image == nil {
+//                viewModel?.loadPosterImage(with: item.posterPath)
+            }
+            cell.configure(with: item)
+        }
         return cell
     }
 
@@ -40,4 +49,14 @@ class PopularMoviesViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
     }
+}
+
+extension PopularMoviesViewController: PopularMoviesViewModelDelegate {
+    func dataUpdated() {
+        tableView.reloadData()
+    }
+
+//    func imageDownloaded() {
+//        
+//    }
 }
