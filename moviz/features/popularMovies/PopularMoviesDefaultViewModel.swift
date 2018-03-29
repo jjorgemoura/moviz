@@ -16,7 +16,7 @@ protocol PopularMoviesViewModelDelegate: class {
 class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
 
     let service: MoviesService
-    var popularMovies: [FilmViewModel] = [FilmViewModel]()
+    var popularMovies: [MovieViewModel] = [MovieViewModel]()
     let title = "Popular Movies"
     weak var delegate: PopularMoviesViewModelDelegate?
 
@@ -28,7 +28,7 @@ class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
 
         service.retrievePopularMovies(index: 1) { [weak self] popularMoviesList in
             DispatchQueue.main.async {
-                self?.popularMovies = popularMoviesList.results.map { FilmViewModel.build(filmData: $0) }
+                self?.popularMovies = popularMoviesList.results.map { MovieViewModel.build(filmData: $0) }
                 self?.delegate?.dataUpdated()
             }
         }

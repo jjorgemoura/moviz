@@ -15,7 +15,7 @@ protocol MovieViewControllerDelegate: class {
 
 class MovieViewController: UIViewController {
 
-    var viewModel: FilmViewModel?
+    var viewModel: MovieViewModel?
     weak var delegate: MovieViewControllerDelegate?
 
     override func viewDidLoad() {

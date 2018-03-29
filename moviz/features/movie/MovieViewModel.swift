@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol FilmViewModelDelegate: class {
+protocol MovieViewModelDelegate: class {
 
     func posterImageUpdated(image: UIImage)
 }
 
-class FilmViewModel {
+class MovieViewModel {
 
     let identifier: Int
     let title: String
@@ -26,10 +26,10 @@ class FilmViewModel {
     var image: UIImage?
 
     private let service: MoviesService = MoviesWebService()
-    weak var delegate: FilmViewModelDelegate?
+    weak var delegate: MovieViewModelDelegate?
 
-    static func build(filmData: FilmData) -> FilmViewModel {
-        return FilmViewModel(film: filmData)
+    static func build(filmData: FilmData) -> MovieViewModel {
+        return MovieViewModel(film: filmData)
     }
 
     init(film: FilmData) {

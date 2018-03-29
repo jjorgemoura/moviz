@@ -28,8 +28,8 @@ class PopularMoviesCoordinator: Coordinator, Navigationable {
 }
 
 extension PopularMoviesCoordinator: PopularMoviesViewControllerDelegate {
-    func didSelect(_ item: FilmViewModel) {
-        movieCoordinator = MovieCoordinator(navigationController: navigationController, filmViewModel: item)
+    func didSelect(_ item: MovieViewModel) {
+        movieCoordinator = MovieCoordinator(navigationController: navigationController, movieViewModel: item)
         movieCoordinator?.delegate = self
         movieCoordinator?.start()
     }

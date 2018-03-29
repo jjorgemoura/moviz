@@ -8,7 +8,7 @@
 
 protocol PopularMoviesViewModel {
 
-    var popularMovies: [FilmViewModel] { get set }
+    var popularMovies: [MovieViewModel] { get set }
     var title: String { get }
     weak var delegate: PopularMoviesViewModelDelegate? { get set }
 

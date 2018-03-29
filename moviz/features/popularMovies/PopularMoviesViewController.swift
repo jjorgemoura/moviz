@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PopularMoviesViewControllerDelegate: class {
-    func didSelect(_ item: FilmViewModel)
+    func didSelect(_ item: MovieViewModel)
 }
 
 class PopularMoviesViewController: UITableViewController {

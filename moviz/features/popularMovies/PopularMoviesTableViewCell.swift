@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PopularMoviesTableViewCell: UITableViewCell, FilmViewModelDelegate {
+class PopularMoviesTableViewCell: UITableViewCell, MovieViewModelDelegate {
 
     static let cellIdentifier: String = "PopularMoviesTableViewCell"
 
@@ -21,7 +21,7 @@ class PopularMoviesTableViewCell: UITableViewCell, FilmViewModelDelegate {
     @IBOutlet private var posterImageView: UIImageView!
     @IBOutlet private var filmDescriptionText: UITextView!
 
-    func configure(with film: FilmViewModel) {
+    func configure(with film: MovieViewModel) {
         if isDownloadingImage {
             shouldCancelDownload = true
         }
