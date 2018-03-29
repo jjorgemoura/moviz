@@ -18,8 +18,7 @@ struct NetworkConstants {
     }
 
     struct QueryItemParameterValues {
-//        static let apiKey = "REPLACE WITH REAL API KEY"
-        static let apiKey = "bda9cb42c33e96c3a12bc16bc4b10554"
+        static let apiKey = "REPLACE WITH REAL API KEY"
         static let language = "en-US"
     }
 }

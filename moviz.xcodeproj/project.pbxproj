@@ -136,12 +136,7 @@
 		B4A62CF120698C2D00C757E4 /* services */ = {
 			isa = PBXGroup;
 			children = (
-				CF54CE44206D8E7C00A4CB38 /* NetworkConstants.swift */,
-				B4A8D8AE206AE66C0046C6A5 /* NetworkRequester.swift */,
-				B4A8D8B0206AE6DD0046C6A5 /* NetworkDefaultRequester.swift */,
-				B4A8D8AC206AE1720046C6A5 /* NetworkResult.swift */,
-				B4A8D8A4206ADF370046C6A5 /* NetworkService.swift */,
-				B4A8D8A6206ADF440046C6A5 /* NetworkWebService.swift */,
+				CF54CE46206D944400A4CB38 /* networking */,
 				B4A8D8A8206ADF850046C6A5 /* MoviesService.swift */,
 				B4A8D8AA206ADF8C0046C6A5 /* MoviesWebService.swift */,
 			);
@@ -205,10 +200,7 @@
 			children = (
 				CF54CE41206D623800A4CB38 /* utility */,
 				B4A62D09206991EB00C757E4 /* protocols */,
-				B4A62D0A206991F200C757E4 /* extensions */,
 				B4A62D0D206992DB00C757E4 /* AppCoordinator.swift */,
-				B4A62D0F2069952A00C757E4 /* Rootable.swift */,
-				B4A62D112069953200C757E4 /* Navigationable.swift */,
 			);
 			path = application;
 			sourceTree = "<group>";
@@ -217,15 +209,10 @@
 			isa = PBXGroup;
 			children = (
 				B4A62D0B2069920100C757E4 /* Coordinator.swift */,
+				B4A62D0F2069952A00C757E4 /* Rootable.swift */,
+				B4A62D112069953200C757E4 /* Navigationable.swift */,
 			);
 			path = protocols;
-			sourceTree = "<group>";
-		};
-		B4A62D0A206991F200C757E4 /* extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = extensions;
 			sourceTree = "<group>";
 		};
 		B4A62D132069A84000C757E4 /* model */ = {
@@ -294,6 +281,19 @@
 				CF54CE42206D625800A4CB38 /* AppDateFormatter.swift */,
 			);
 			path = utility;
+			sourceTree = "<group>";
+		};
+		CF54CE46206D944400A4CB38 /* networking */ = {
+			isa = PBXGroup;
+			children = (
+				CF54CE44206D8E7C00A4CB38 /* NetworkConstants.swift */,
+				B4A8D8AE206AE66C0046C6A5 /* NetworkRequester.swift */,
+				B4A8D8B0206AE6DD0046C6A5 /* NetworkDefaultRequester.swift */,
+				B4A8D8AC206AE1720046C6A5 /* NetworkResult.swift */,
+				B4A8D8A4206ADF370046C6A5 /* NetworkService.swift */,
+				B4A8D8A6206ADF440046C6A5 /* NetworkWebService.swift */,
+			);
+			path = networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
