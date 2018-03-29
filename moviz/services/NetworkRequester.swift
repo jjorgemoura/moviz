@@ -10,6 +10,6 @@ import Foundation
 
 protocol NetworkRequester {
 
-    func request(endpointURL: String) -> URLRequest?
-    func completeRequest(endpointURL: String) -> URLRequest?
+    func buildRequest(for endpointURL: String, parameters: [String: String]) -> URLRequest?
+    func request(for url: String) -> URLRequest?
 }

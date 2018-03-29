@@ -11,5 +11,4 @@ import UIKit
 protocol Navigationable {
 
     var navigationController: UINavigationController { get }
-
 }

@@ -13,7 +13,6 @@ class MovieView: UIView {
     @IBOutlet private var posterImageView: UIImageView!
 
     func showPoster(image posterImage: UIImage) {
-
         posterImageView.image = posterImage
     }
 }

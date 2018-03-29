@@ -14,7 +14,6 @@ opt_in_rules:
  - explicit_type_interface
  - extension_access_modifier
  - fatal_error_message
- # - file_header
  - first_where
  - force_unwrapping
  - implicit_return
@@ -26,7 +25,6 @@ opt_in_rules:
  - multiline_parameters
  - nimble_operator
  - no_extension_access_modifier
- - no_grouping_extension
  - number_separator
  - object_literal
  - operator_usage_whitespace

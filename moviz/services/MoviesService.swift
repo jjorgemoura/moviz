@@ -11,6 +11,5 @@ import UIKit
 protocol MoviesService {
 
     func retrievePopularMovies(index: Int, completion: @escaping (PopularMoviesData) -> Void)
-
     func loadPosterImage(url: String, completion: @escaping (UIImage) -> Void)
 }

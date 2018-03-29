@@ -13,5 +13,4 @@ enum NetworkResult {
     case httpError(code: Int)
     case error(message: Error)
     case noData
-//    case badRequest
 }

@@ -21,7 +21,7 @@ class FilmViewModel {
     let popularity: Double
     let posterPath: String
     let releaseDate: String
-    let voteAverage: Double
+    let voteAverage: Int
     let isFavourite: Bool = false
     var image: UIImage?
 
@@ -38,8 +38,14 @@ class FilmViewModel {
         self.overview = film.overview
         self.popularity = film.popularity
         self.posterPath = film.posterPath
-        self.releaseDate = film.releaseDate
-        self.voteAverage = film.voteAverage
+
+        if let formattedDate = AppDateFormatter.apiFormatter.date(from: film.releaseDate) {
+            self.releaseDate = AppDateFormatter.uiFormatter.string(from: formattedDate)
+        } else {
+            self.releaseDate = ""
+        }
+
+        self.voteAverage = Int(film.voteAverage * 10)
     }
 
     func downloadPosterImage() {

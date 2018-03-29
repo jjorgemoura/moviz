@@ -11,5 +11,4 @@ import UIKit
 protocol Rootable {
 
     var window: UIWindow { get }
-
 }

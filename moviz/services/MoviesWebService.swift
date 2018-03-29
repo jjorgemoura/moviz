@@ -29,7 +29,7 @@ class MoviesWebService: MoviesService {
             return
         }
 
-        guard let request = networkRequester.request(endpointURL: path(forIndex: index)) else {
+        guard let request = networkRequester.buildRequest(for: path(forIndex: index), parameters: ["page": "1"]) else {
             print("BAD REQUEST URL")
             return
         }
@@ -47,7 +47,7 @@ class MoviesWebService: MoviesService {
     func loadPosterImage(url: String, completion: @escaping (UIImage) -> Void) {
         print(url)
         let fullUrl = "http://image.tmdb.org/t/p/w500" + url
-        guard let request = networkRequester.completeRequest(endpointURL: fullUrl) else {
+        guard let request = networkRequester.request(for: fullUrl) else {
             print("BAD REQUEST URL")
             return
         }
@@ -55,10 +55,6 @@ class MoviesWebService: MoviesService {
         networkService.performGet(request: request) { networkResult in
             switch networkResult {
             case NetworkResult.ok(let data):
-
-                print(data)
-                let posterImage111 = UIImage(data: data, scale: 1.0)
-
                 if let posterImage = UIImage(data: data, scale: 1.0) {
                     completion(posterImage)
                 }

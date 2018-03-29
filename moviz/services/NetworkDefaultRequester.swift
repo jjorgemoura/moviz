@@ -10,21 +10,42 @@ import Foundation
 
 class NetworkDefaultRequester: NetworkRequester {
 
-    static let baseURL = "https://api.themoviedb.org/3/"
+    static let baseURL: String = "https://api.themoviedb.org/3/"
 
-    func request(endpointURL: String) -> URLRequest? {
+    func buildRequest(for endpointURL: String, parameters: [String: String] = [:]) -> URLRequest? {
         let completeURL = NetworkDefaultRequester.baseURL.appending(endpointURL)
 
-        if let url = URL(string: completeURL) {
+        if var fullUrl = URLComponents(string: completeURL) {
+            fullUrl.queryItems = buildQueryItems(parameters: parameters, addDefaultParameters: true)
+
+            if let url = fullUrl.url {
+                return URLRequest(url: url)
+            }
+        }
+        return nil
+    }
+
+    func request(for url: String) -> URLRequest? {
+        if let url = URL(string: url) {
             return URLRequest(url: url)
         }
         return nil
     }
 
-    func completeRequest(endpointURL: String) -> URLRequest? {
-        if let url = URL(string: endpointURL) {
-            return URLRequest(url: url)
+    private func buildQueryItems(parameters: [String: String], addDefaultParameters: Bool = false) -> [URLQueryItem] {
+        var queryItems = [URLQueryItem]()
+
+        for parameter in parameters {
+            let queryParam = URLQueryItem(name: parameter.key, value: parameter.value)
+            queryItems.append(queryParam)
         }
-        return nil
+
+        if addDefaultParameters {
+            let queryParamToken = URLQueryItem(name: "api_key", value: "bda9cb42c33e96c3a12bc16bc4b10554")
+            let queryParamLanguage = URLQueryItem(name: "language", value: "en-US")
+            queryItems.append(queryParamToken)
+            queryItems.append(queryParamLanguage)
+        }
+        return queryItems
     }
 }
