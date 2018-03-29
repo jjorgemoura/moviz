@@ -17,7 +17,7 @@ class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
 
     let service: MoviesService
     var popularMovies: [FilmViewModel] = [FilmViewModel]()
-    let title: String = "Popular Movies"
+    let title = "Popular Movies"
     weak var delegate: PopularMoviesViewModelDelegate?
 
     init(service: MoviesService = MoviesWebService()) {
@@ -32,9 +32,5 @@ class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
                 self?.delegate?.dataUpdated()
             }
         }
-    }
-
-    func navigateToFilm(viewModel: FilmViewModel) {
-
     }
 }

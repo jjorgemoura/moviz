@@ -26,8 +26,6 @@ class PopularMoviesTableViewCell: UITableViewCell, FilmViewModelDelegate {
             shouldCancelDownload = true
         }
 
-        film.delegate = self
-
         titleLabel.text = film.title
         releaseDateLabel.text = film.releaseDate
         rateLabel.attributedText = formatRate(for: film.voteAverage)
@@ -38,6 +36,8 @@ class PopularMoviesTableViewCell: UITableViewCell, FilmViewModelDelegate {
         } else {
             posterImageView.image = nil
         }
+
+        film.delegate = self
         film.downloadPosterImage()
     }
 

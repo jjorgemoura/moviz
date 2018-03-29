@@ -14,7 +14,7 @@ protocol MovieCoordinatorDelegate: class {
 
 class MovieCoordinator: Coordinator, Navigationable {
 
-    private var movieViewController: MovieViewController = MovieViewController()
+    private var movieViewController = MovieViewController()
     private var filmViewModel: FilmViewModel
     weak var delegate: MovieCoordinatorDelegate?
     let navigationController: UINavigationController
@@ -35,7 +35,6 @@ extension MovieCoordinator: MovieViewControllerDelegate {
 
     func backButtonTapped() {
         navigationController.popViewController(animated: true)
-//        movieViewController = nil
         delegate?.dismiss()
     }
 }

@@ -11,7 +11,7 @@ import UIKit
 class AppCoordinator: Coordinator, Rootable {
 
     let window: UIWindow
-    private let navigationController: UINavigationController = UINavigationController()
+    private let navigationController = UINavigationController()
     private var popularMoviesCoordinator: PopularMoviesCoordinator?
 
     init(window: UIWindow) {

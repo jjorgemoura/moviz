@@ -192,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				B4A62D062069918B00C757E4 /* MovieCoordinator.swift */,
+				B4A8D8B2206AF2400046C6A5 /* FilmViewModel.swift */,
 				B4A62D022069917500C757E4 /* MovieViewController.swift */,
 				B4A62D042069918100C757E4 /* MovieView.swift */,
 				CF75644F206CCF7E00618AEC /* MovieView.xib */,
@@ -232,7 +233,6 @@
 			children = (
 				B4A62D162069A9AD00C757E4 /* PopularMoviesData.swift */,
 				B4A62D142069A86E00C757E4 /* FilmData.swift */,
-				B4A8D8B2206AF2400046C6A5 /* FilmViewModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
