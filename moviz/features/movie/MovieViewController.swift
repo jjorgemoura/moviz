@@ -10,4 +10,13 @@ import UIKit
 
 class MovieViewController: UIViewController {
 
+    var viewModel: FilmViewModel?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        if let posterImage = viewModel?.image, let movieView = view as? MovieView {
+            movieView.showPoster(image: posterImage)
+        }
+    }
 }

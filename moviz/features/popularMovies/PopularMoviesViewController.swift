@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol PopularMoviesViewControllerDelegate: class {
+    func didSelect(_ item: FilmViewModel)
+}
+
 class PopularMoviesViewController: UITableViewController {
 
     var viewModel: PopularMoviesViewModel?
+    weak var delegate: PopularMoviesViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +52,10 @@ class PopularMoviesViewController: UITableViewController {
     // MARK: - UITableViewDelegate Methods
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        print("JM: XXXX -> (\(indexPath.row))")
+        if let item = viewModel?.popularMovies[indexPath.row] {
+            delegate?.didSelect(item)
+        }
     }
 }
 
@@ -55,8 +63,4 @@ extension PopularMoviesViewController: PopularMoviesViewModelDelegate {
     func dataUpdated() {
         tableView.reloadData()
     }
-
-//    func imageDownloaded() {
-//        
-//    }
 }

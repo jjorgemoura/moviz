@@ -12,6 +12,9 @@ class PopularMoviesTableViewCell: UITableViewCell, FilmViewModelDelegate {
 
     static let cellIdentifier: String = "PopularMoviesTableViewCell"
 
+    private var shouldCancelDownload: Bool = false
+    private var isDownloadingImage: Bool = false
+
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var releaseDateLabel: UILabel!
     @IBOutlet private var rateLabel: UILabel!
@@ -19,23 +22,43 @@ class PopularMoviesTableViewCell: UITableViewCell, FilmViewModelDelegate {
     @IBOutlet private var filmDescriptionText: UITextView!
 
     func configure(with film: FilmViewModel) {
-        titleLabel.text = film.title
-        releaseDateLabel.text = film.releaseDate
-        rateLabel.text = String(film.voteAverage)
-        filmDescriptionText.text = film.overview
+        if isDownloadingImage {
+            shouldCancelDownload = true
+        }
 
         film.delegate = self
+        let ratingPercentage: Int = Int(film.voteAverage * 10)
+        formatRate(after: ratingPercentage)
+
+        titleLabel.text = film.title
+        releaseDateLabel.text = film.releaseDate
+        rateLabel.text = String(format: "%d%%", ratingPercentage)
+        filmDescriptionText.text = film.overview
 
         if film.image == nil {
-            film.downloadPosterImage()
+            isDownloadingImage = true
+        } else {
+            posterImageView.image = nil
+        }
+        film.downloadPosterImage()
+    }
+
+    func posterImageUpdated(image: UIImage) {
+        if !shouldCancelDownload {
+            posterImageView.image = image
+            isDownloadingImage = false
+            shouldCancelDownload = false
         }
     }
 
-//    func update(image: UIImage) {
-//        posterImageView.image = image
-//    }
+    private func formatRate(after voteAverage: Int) {
 
-    func posterImageUpdated(image: UIImage) {
-        posterImageView.image = image
+        if voteAverage < 40 {
+            rateLabel.textColor = UIColor.red
+        } else if voteAverage < 70 {
+            rateLabel.textColor = UIColor.orange
+        } else {
+            rateLabel.textColor = UIColor.green
+        }
     }
 }

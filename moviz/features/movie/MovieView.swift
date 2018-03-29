@@ -6,4 +6,14 @@
 //  Copyright © 2018 Jorge Moura. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class MovieView: UIView {
+
+    @IBOutlet private var posterImageView: UIImageView!
+
+    func showPoster(image posterImage: UIImage) {
+
+        posterImageView.image = posterImage
+    }
+}

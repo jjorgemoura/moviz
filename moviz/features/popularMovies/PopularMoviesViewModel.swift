@@ -13,5 +13,5 @@ protocol PopularMoviesViewModel {
     weak var delegate: PopularMoviesViewModelDelegate? { get set }
 
     func loadPopularMovies()
-//    func loadPosterImage(with url: String)
+    func navigateToFilm(viewModel: FilmViewModel)
 }

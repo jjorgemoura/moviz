@@ -11,7 +11,6 @@ import Foundation
 protocol PopularMoviesViewModelDelegate: class {
 
     func dataUpdated()
-//    func imageDownloaded()
 }
 
 class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
@@ -35,13 +34,7 @@ class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
         }
     }
 
-//    func loadPosterImage(with url: String) {
-//        service.loadPosterImage(url: url) { [weak self] posterImage in
-//            DispatchQueue.main.async {
-////                self?.popularMovies = popularMoviesList.results.map { Film.build(filmData: $0) }
-//                
-////                self?.delegate?.imageDownloaded()
-//            }
-//        }
-//    }
+    func navigateToFilm(viewModel: FilmViewModel) {
+
+    }
 }

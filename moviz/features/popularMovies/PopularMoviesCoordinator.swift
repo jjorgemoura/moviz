@@ -10,6 +10,7 @@ import UIKit
 
 class PopularMoviesCoordinator: Coordinator, Navigationable {
 
+    private var movieCoordinator: MovieCoordinator?
     private var popularMoviesViewController: PopularMoviesViewController = PopularMoviesViewController()
     private var popularMoviesViewModel: PopularMoviesViewModel = PopularMoviesDefaultViewModel()
     let navigationController: UINavigationController
@@ -20,7 +21,15 @@ class PopularMoviesCoordinator: Coordinator, Navigationable {
 
     func start() {
         popularMoviesViewController.viewModel = popularMoviesViewModel
+        popularMoviesViewController.delegate = self
         popularMoviesViewModel.delegate = popularMoviesViewController
         navigationController.pushViewController(popularMoviesViewController, animated: true)
+    }
+}
+
+extension PopularMoviesCoordinator: PopularMoviesViewControllerDelegate {
+    func didSelect(_ item: FilmViewModel) {
+        movieCoordinator = MovieCoordinator(navigationController: navigationController, filmViewModel: item)
+        movieCoordinator?.start()
     }
 }

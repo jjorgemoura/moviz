@@ -9,9 +9,9 @@
 import Foundation
 
 class NetworkDefaultRequester: NetworkRequester {
-    
+
     static let baseURL = "https://api.themoviedb.org/3/"
-    
+
     func request(endpointURL: String) -> URLRequest? {
         let completeURL = NetworkDefaultRequester.baseURL.appending(endpointURL)
 
@@ -20,7 +20,7 @@ class NetworkDefaultRequester: NetworkRequester {
         }
         return nil
     }
-    
+
     func completeRequest(endpointURL: String) -> URLRequest? {
         if let url = URL(string: endpointURL) {
             return URLRequest(url: url)
