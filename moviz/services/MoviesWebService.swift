@@ -45,7 +45,6 @@ class MoviesWebService: MoviesService {
     }
 
     func loadPosterImage(url: String, completion: @escaping (UIImage) -> Void) {
-        print(url)
         let fullUrl = "http://image.tmdb.org/t/p/w500" + url
         guard let request = networkRequester.request(for: fullUrl) else {
             print("BAD REQUEST URL")

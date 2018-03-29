@@ -41,9 +41,6 @@ class PopularMoviesViewController: UITableViewController {
         }
 
         if let item = viewModel?.popularMovies[indexPath.row] {
-            if item.image == nil {
-//                viewModel?.loadPosterImage(with: item.posterPath)
-            }
             cell.configure(with: item)
         }
         return cell
@@ -52,7 +49,6 @@ class PopularMoviesViewController: UITableViewController {
     // MARK: - UITableViewDelegate Methods
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("JM: XXXX -> (\(indexPath.row))")
         if let item = viewModel?.popularMovies[indexPath.row] {
             delegate?.didSelect(item)
         }

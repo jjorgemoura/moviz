@@ -11,7 +11,7 @@ opt_in_rules:
  - empty_count
  - explicit_enum_raw_value
  - explicit_init
- - explicit_type_interface
+ # - explicit_type_interface
  - extension_access_modifier
  - fatal_error_message
  - first_where

@@ -37,6 +37,7 @@
 		B4B0031E206989CE00D0BE8A /* MovizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B0031D206989CE00D0BE8A /* MovizTests.swift */; };
 		B4B00329206989CE00D0BE8A /* MovizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B00328206989CE00D0BE8A /* MovizUITests.swift */; };
 		CF54CE43206D625800A4CB38 /* AppDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF54CE42206D625800A4CB38 /* AppDateFormatter.swift */; };
+		CF54CE45206D8E7C00A4CB38 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF54CE44206D8E7C00A4CB38 /* NetworkConstants.swift */; };
 		CF756450206CCF7E00618AEC /* MovieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF75644F206CCF7E00618AEC /* MovieView.xib */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		B4B00328206989CE00D0BE8A /* MovizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovizUITests.swift; sourceTree = "<group>"; };
 		B4B0032A206989CE00D0BE8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF54CE42206D625800A4CB38 /* AppDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDateFormatter.swift; sourceTree = "<group>"; };
+		CF54CE44206D8E7C00A4CB38 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		CF75644F206CCF7E00618AEC /* MovieView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,7 @@
 		B4A62CF120698C2D00C757E4 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				CF54CE44206D8E7C00A4CB38 /* NetworkConstants.swift */,
 				B4A8D8AE206AE66C0046C6A5 /* NetworkRequester.swift */,
 				B4A8D8B0206AE6DD0046C6A5 /* NetworkDefaultRequester.swift */,
 				B4A8D8AC206AE1720046C6A5 /* NetworkResult.swift */,
@@ -459,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF54CE45206D8E7C00A4CB38 /* NetworkConstants.swift in Sources */,
 				B4A62D0E206992DB00C757E4 /* AppCoordinator.swift in Sources */,
 				B4B0030E206989CE00D0BE8A /* moviz.xcdatamodeld in Sources */,
 				B4A62D072069918B00C757E4 /* MovieCoordinator.swift in Sources */,

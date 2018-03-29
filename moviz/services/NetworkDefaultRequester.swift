@@ -10,10 +10,8 @@ import Foundation
 
 class NetworkDefaultRequester: NetworkRequester {
 
-    static let baseURL: String = "https://api.themoviedb.org/3/"
-
     func buildRequest(for endpointURL: String, parameters: [String: String] = [:]) -> URLRequest? {
-        let completeURL = NetworkDefaultRequester.baseURL.appending(endpointURL)
+        let completeURL = NetworkConstants.Domain.baseURL.appending(endpointURL)
 
         if var fullUrl = URLComponents(string: completeURL) {
             fullUrl.queryItems = buildQueryItems(parameters: parameters, addDefaultParameters: true)
@@ -41,8 +39,10 @@ class NetworkDefaultRequester: NetworkRequester {
         }
 
         if addDefaultParameters {
-            let queryParamToken = URLQueryItem(name: "api_key", value: "bda9cb42c33e96c3a12bc16bc4b10554")
-            let queryParamLanguage = URLQueryItem(name: "language", value: "en-US")
+            let queryParamToken = URLQueryItem(name: NetworkConstants.QueryItemParameters.apiKey,
+                                               value: NetworkConstants.QueryItemParameterValues.apiKey)
+            let queryParamLanguage = URLQueryItem(name: NetworkConstants.QueryItemParameters.language,
+                                                  value: NetworkConstants.QueryItemParameterValues.language)
             queryItems.append(queryParamToken)
             queryItems.append(queryParamLanguage)
         }

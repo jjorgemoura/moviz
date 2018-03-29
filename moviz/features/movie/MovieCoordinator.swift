@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol MovieCoordinatorDelegate: class {
+    func dismiss()
+}
+
 class MovieCoordinator: Coordinator, Navigationable {
 
     private var movieViewController: MovieViewController = MovieViewController()
     private var filmViewModel: FilmViewModel
+    weak var delegate: MovieCoordinatorDelegate?
     let navigationController: UINavigationController
 
     init(navigationController: UINavigationController, filmViewModel: FilmViewModel) {
@@ -20,7 +25,17 @@ class MovieCoordinator: Coordinator, Navigationable {
     }
 
     func start() {
-        movieViewController.viewModel = filmViewModel
-        navigationController.pushViewController(movieViewController, animated: true)
+            movieViewController.viewModel = filmViewModel
+            movieViewController.delegate = self
+            navigationController.pushViewController(movieViewController, animated: true)
+    }
+}
+
+extension MovieCoordinator: MovieViewControllerDelegate {
+
+    func backButtonTapped() {
+        navigationController.popViewController(animated: true)
+//        movieViewController = nil
+        delegate?.dismiss()
     }
 }
