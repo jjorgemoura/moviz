@@ -18,12 +18,10 @@ class NetworkWebService: NetworkService {
                 completion(.error(message: responseError))
                 return
             }
-
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
                 completion(.httpError(code: httpResponse.statusCode))
                 return
             }
-
             guard let data = data else {
                 completion(.noData)
                 return

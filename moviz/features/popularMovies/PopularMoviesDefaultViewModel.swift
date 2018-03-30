@@ -15,17 +15,17 @@ protocol PopularMoviesViewModelDelegate: class {
 
 class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
 
-    let service: MoviesService
     var popularMovies: [MovieViewModel] = [MovieViewModel]()
+    let service: MoviesService
     let title = "Popular Movies"
     weak var delegate: PopularMoviesViewModelDelegate?
 
+    // MARK: - Initializers
     init(service: MoviesService = MoviesWebService()) {
         self.service = service
     }
 
     func loadPopularMovies() {
-
         service.retrievePopularMovies(index: 1) { [weak self] popularMoviesList in
             DispatchQueue.main.async {
                 self?.popularMovies = popularMoviesList.results.map { MovieViewModel.build(filmData: $0) }

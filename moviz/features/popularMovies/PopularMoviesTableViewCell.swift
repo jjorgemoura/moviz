@@ -49,6 +49,7 @@ class PopularMoviesTableViewCell: UITableViewCell, MovieViewModelDelegate {
         }
     }
 
+    // MARK: - Private methods
     private func formatRate(for voteAverage: Int) -> NSAttributedString {
         let colorAttribute = [NSAttributedStringKey.foregroundColor: formatFilmRateColor(for: voteAverage)]
         let smallFontAttribute = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)]

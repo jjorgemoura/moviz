@@ -15,6 +15,8 @@ protocol MovieViewModelDelegate: class {
 
 class MovieViewModel {
 
+    private let service: MoviesService = MoviesWebService()
+
     let identifier: Int
     let title: String
     let overview: String
@@ -25,13 +27,14 @@ class MovieViewModel {
     let isFavourite: Bool = false
     var image: UIImage?
 
-    private let service: MoviesService = MoviesWebService()
     weak var delegate: MovieViewModelDelegate?
 
+    // MARK: - Static method
     static func build(filmData: FilmData) -> MovieViewModel {
         return MovieViewModel(film: filmData)
     }
 
+    // MARK: - Initializers
     init(film: FilmData) {
         self.identifier = film.identifier
         self.title = film.title

@@ -30,6 +30,7 @@ class NetworkDefaultRequester: NetworkRequester {
         return nil
     }
 
+    // MARK: - Private methods
     private func buildQueryItems(parameters: [String: String], addDefaultParameters: Bool = false) -> [URLQueryItem] {
         var queryItems = [URLQueryItem]()
 

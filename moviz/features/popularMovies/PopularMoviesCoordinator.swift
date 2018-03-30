@@ -11,10 +11,11 @@ import UIKit
 class PopularMoviesCoordinator: Coordinator, Navigationable {
 
     private var movieCoordinator: MovieCoordinator?
-    private var popularMoviesViewController: PopularMoviesViewController = PopularMoviesViewController()
-    private var popularMoviesViewModel: PopularMoviesViewModel = PopularMoviesDefaultViewModel()
+    private var popularMoviesViewController = PopularMoviesViewController()
+    private var popularMoviesViewModel = PopularMoviesDefaultViewModel()
     let navigationController: UINavigationController
 
+    // MARK: - Initializers
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }

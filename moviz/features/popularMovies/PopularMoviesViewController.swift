@@ -47,7 +47,6 @@ class PopularMoviesViewController: UITableViewController {
     }
 
     // MARK: - UITableViewDelegate Methods
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let item = viewModel?.popularMovies[indexPath.row] {
             delegate?.didSelect(item)

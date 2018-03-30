@@ -10,10 +10,11 @@ import UIKit
 
 class AppCoordinator: Coordinator, Rootable {
 
-    let window: UIWindow
     private let navigationController = UINavigationController()
     private var popularMoviesCoordinator: PopularMoviesCoordinator?
+    let window: UIWindow
 
+    // MARK: - Initializers
     init(window: UIWindow) {
         self.window = window
     }

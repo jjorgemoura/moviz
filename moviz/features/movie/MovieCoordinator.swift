@@ -14,20 +14,21 @@ protocol MovieCoordinatorDelegate: class {
 
 class MovieCoordinator: Coordinator, Navigationable {
 
-    private var movieViewController = MovieViewController()
+    var movieViewController = MovieViewController()
     private var movieViewModel: MovieViewModel
-    weak var delegate: MovieCoordinatorDelegate?
     let navigationController: UINavigationController
+    weak var delegate: MovieCoordinatorDelegate?
 
+    // MARK: - Initializers
     init(navigationController: UINavigationController, movieViewModel: MovieViewModel) {
         self.navigationController = navigationController
         self.movieViewModel = movieViewModel
     }
 
     func start() {
-            movieViewController.viewModel = movieViewModel
-            movieViewController.delegate = self
-            navigationController.pushViewController(movieViewController, animated: true)
+        movieViewController.viewModel = movieViewModel
+        movieViewController.delegate = self
+        navigationController.pushViewController(movieViewController, animated: true)
     }
 }
 

@@ -16,9 +16,10 @@ class MoviesWebService: MoviesService {
         static let popular: String = "popular"
     }
 
-    let networkService: NetworkService
-    let networkRequester: NetworkRequester
+    private let networkService: NetworkService
+    private let networkRequester: NetworkRequester
 
+    // MARK: - Initializers
     init(networkService: NetworkService = NetworkWebService(), networkRequester: NetworkRequester = NetworkDefaultRequester()) {
         self.networkService = networkService
         self.networkRequester = networkRequester
@@ -63,6 +64,7 @@ class MoviesWebService: MoviesService {
         }
     }
 
+    // MARK: - Private methods
     private func parse(data: Data, completion: (PopularMoviesData) -> Void) {
         do {
             let result = try JSONDecoder().decode(PopularMoviesData.self, from: data)
