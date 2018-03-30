@@ -10,9 +10,15 @@ import Foundation
 
 class NetworkWebService: NetworkService {
 
+    let urlSession: URLSession
+
+    init(urlSession: URLSession = URLSession.shared) {
+        self.urlSession = urlSession
+    }
+
     func performGet(request: URLRequest, completion: @escaping (NetworkResult) -> Void) {
 
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = urlSession.dataTask(with: request) { data, response, error in
 
             if let responseError = error {
                 completion(.error(message: responseError))

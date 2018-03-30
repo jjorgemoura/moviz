@@ -15,7 +15,7 @@ protocol MovieViewModelDelegate: class {
 
 class MovieViewModel {
 
-    private let service: MoviesService = MoviesWebService()
+    private let service: MoviesService
 
     let identifier: Int
     let title: String
@@ -30,12 +30,13 @@ class MovieViewModel {
     weak var delegate: MovieViewModelDelegate?
 
     // MARK: - Static method
-    static func build(filmData: FilmData) -> MovieViewModel {
-        return MovieViewModel(film: filmData)
+    static func build(filmData: FilmData, service: MoviesService = MoviesWebService()) -> MovieViewModel {
+        return MovieViewModel(film: filmData, service: service)
     }
 
     // MARK: - Initializers
-    init(film: FilmData) {
+    init(film: FilmData, service: MoviesService = MoviesWebService()) {
+        self.service = service
         self.identifier = film.identifier
         self.title = film.title
         self.overview = film.overview

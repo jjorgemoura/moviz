@@ -10,6 +10,7 @@ struct NetworkConstants {
 
     struct Domain {
         static let baseURL = "https://api.themoviedb.org/3/"
+        static let imageServiceBaseURL = "http://image.tmdb.org/t/p/w500"
     }
 
     struct QueryItemParameters {

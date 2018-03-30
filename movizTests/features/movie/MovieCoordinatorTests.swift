@@ -23,6 +23,7 @@ class MovieCoordinatorTests: XCTestCase {
         XCTAssertTrue(navigationController.visibleViewController is MovieViewController)
     }
 
+    // MARK: - Convenience Methods
     private func filmData() -> FilmData {
         return FilmData(identifier: 1,
                         title: "",
