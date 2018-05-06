@@ -36,14 +36,12 @@ class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .observeOn(MainScheduler.instance)
             .subscribe(onSuccess: { popularMovies in
-
                 let newMovies = popularMovies.results.map { MovieViewModel.build(filmData: $0) }
                 self.popularMovies.append(contentsOf: newMovies)
                 self.delegate?.dataUpdated()
-
-        }) { _ in
-            print("ERROR")
-            }
+            }, onError: { error in
+                print(error)
+            })
             .disposed(by: bag)
     }
 

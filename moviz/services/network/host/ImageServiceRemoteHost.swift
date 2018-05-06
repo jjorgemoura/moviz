@@ -9,6 +9,5 @@
 class ImageServiceRemoteHost: RemoteHost {
 
     var baseURL: String = "http://image.tmdb.org/t/p/w500"
-
     var mandatoryQueryParameters: [String: String] = [: ]
 }

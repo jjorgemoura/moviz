@@ -14,18 +14,9 @@ struct Resource {
     let body: Codable?
 
     static func buildGet(for endpoint: String, on host: RemoteHost, queryParameters: [String: String] = [:]) -> Resource {
-        let endpointQueryParameters = queryParameters.merging(host.mandatoryQueryParameters) { current, _ -> String in current }
-
         let url = host.baseURL.appending(endpoint)
+        let endpointQueryParameters = queryParameters.merging(host.mandatoryQueryParameters) { current, _ -> String in current }
 
         return Resource(method: .get, url: url, queryParameters: endpointQueryParameters, body: nil)
     }
-}
-
-enum Method: String {
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
-    case delete = "DELETE"
-    case header = "HEADER"
 }

@@ -9,6 +9,5 @@
 protocol RemoteHost {
 
     var baseURL: String { get }
-
     var mandatoryQueryParameters: [String: String] { get }
 }

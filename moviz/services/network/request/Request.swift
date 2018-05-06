@@ -10,5 +10,5 @@ import Foundation
 
 protocol Request {
 
-    func build() -> URLRequest
+    func build() -> URLRequest?
 }

@@ -63,9 +63,9 @@ class MovieViewModel {
                     self?.image = posterImage
                     self?.delegate?.posterImageUpdated(image: posterImage)
                 }
-        }) { error in
-            print(error)
-            }
+            }, onError: { error in
+                print(error)
+            })
             .disposed(by: bag)
     }
 }

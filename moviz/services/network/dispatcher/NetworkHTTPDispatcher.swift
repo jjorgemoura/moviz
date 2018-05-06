@@ -26,29 +26,24 @@ class NetworkHTTPDispatcher: NetworkDispatcher {
     }
 
     func dispatch(request: Request) -> Single<(HTTPURLResponse, Data)> {
-
         return Single<URLRequest>.create { single in
-            do {
-                let urlRequest = request.build()
+            if let urlRequest = request.build() {
                 single(.success(urlRequest))
-            } catch {
-                single(.error(error))
+            } else {
+                single(.error(NetworkDispatcherError.invalidUrl))
             }
-
             return Disposables.create()
-            }
-            .flatMap({ [weak self] urlRequest -> Single<(HTTPURLResponse, Data)> in
+        }
+            .flatMap { [weak self] urlRequest -> Single<(HTTPURLResponse, Data)> in
                 guard let strongSelf = self else {
                     return Single.error(NetworkDispatcherError.unknown)
                 }
-                return strongSelf.rx_response(with: urlRequest, originatingRequest: request)
-            })
+                return strongSelf.rxResponse(with: urlRequest, originatingRequest: request)
+            }
     }
 
-    private func rx_response(with urlRequest: URLRequest, originatingRequest: Request) -> Single<(HTTPURLResponse, Data)> {
+    private func rxResponse(with urlRequest: URLRequest, originatingRequest: Request) -> Single<(HTTPURLResponse, Data)> {
         return Single.create { single in
-
-            //            let requestStartTime = Date()
 
             let task = self.urlSession.dataTask(with: urlRequest) { data, response, error in
 

@@ -22,26 +22,23 @@ class NetworkWebService: NetworkService {
     }
 
     func performCall<T: Decodable>(for request: Request) -> Single<T> {
-
-        return networkDispatcher.dispatch(request: request).map({ response, data -> T in
-
+        return networkDispatcher.dispatch(request: request).map { response, data -> T in
             if self.isStatusCodeSuccess(response.statusCode) {
                 return try JSONDecoder().decode(T.self, from: data)
             } else {
                 throw NetworkServiceError.nonSuccessCode(response: response, data: data)
             }
-        })
+        }
     }
 
     func performCall(for request: Request) -> Single<Data> {
-
-        return networkDispatcher.dispatch(request: request).map({ response, data -> Data in
+        return networkDispatcher.dispatch(request: request).map { response, data -> Data in
             if self.isStatusCodeSuccess(response.statusCode) {
                 return data
             } else {
                 throw NetworkServiceError.nonSuccessCode(response: response, data: data)
             }
-        })
+        }
     }
 
     private func isStatusCodeSuccess(_ statusCode: Int) -> Bool {
