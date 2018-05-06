@@ -52,6 +52,10 @@ class PopularMoviesViewController: UITableViewController {
             delegate?.didSelect(item)
         }
     }
+
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        viewModel?.prepareDataFor(index: indexPath.row)
+    }
 }
 
 extension PopularMoviesViewController: PopularMoviesViewModelDelegate {

@@ -22,31 +22,23 @@ class PopularMoviesTableViewCell: UITableViewCell, MovieViewModelDelegate {
     @IBOutlet private var filmDescriptionText: UITextView!
 
     func configure(with film: MovieViewModel) {
-        if isDownloadingImage {
-            shouldCancelDownload = true
+        film.delegate = self
+        posterImageView.image = nil
+
+        if film.image == nil {
+            film.downloadPosterImage()
+        } else {
+            posterImageView.image = film.image
         }
 
         titleLabel.text = film.title
         releaseDateLabel.text = film.releaseDate
         rateLabel.attributedText = formatRate(for: film.voteAverage)
         filmDescriptionText.text = film.overview
-
-        if film.image == nil {
-            isDownloadingImage = true
-        } else {
-            posterImageView.image = nil
-        }
-
-        film.delegate = self
-        film.downloadPosterImage()
     }
 
     func posterImageUpdated(image: UIImage) {
-        if !shouldCancelDownload {
-            posterImageView.image = image
-            isDownloadingImage = false
-            shouldCancelDownload = false
-        }
+        posterImageView.image = image
     }
 
     // MARK: - Private methods

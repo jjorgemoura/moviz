@@ -21,6 +21,8 @@ class MovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = viewModel?.title
+
         navigationItem.hidesBackButton = true
         let backButton = UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(MovieViewController.back(sender:)))
         navigationItem.leftBarButtonItem = backButton

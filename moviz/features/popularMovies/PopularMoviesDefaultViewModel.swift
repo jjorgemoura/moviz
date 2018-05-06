@@ -17,28 +17,40 @@ protocol PopularMoviesViewModelDelegate: class {
 class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
 
     private let bag: DisposeBag = DisposeBag()
-    var popularMovies: [MovieViewModel] = [MovieViewModel]()
+    private var currentIndex: Int
     let service: MoviesService
     let title = "Popular Movies"
+    var popularMovies: [MovieViewModel] = [MovieViewModel]()
+
     weak var delegate: PopularMoviesViewModelDelegate?
 
     // MARK: - Initializers
     init(service: MoviesService = MoviesWebService()) {
         self.service = service
+        self.currentIndex = 1
     }
 
     func loadPopularMovies() {
 
-        service.retrievePopularMovies(index: 1).subscribe(onSuccess: { popularMovies in
+        service.retrievePopularMovies(index: currentIndex)
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .observeOn(MainScheduler.instance)
+            .subscribe(onSuccess: { popularMovies in
 
-            DispatchQueue.main.async {
-                self.popularMovies = popularMovies.results.map { MovieViewModel.build(filmData: $0) }
+                let newMovies = popularMovies.results.map { MovieViewModel.build(filmData: $0) }
+                self.popularMovies.append(contentsOf: newMovies)
                 self.delegate?.dataUpdated()
-            }
 
         }) { _ in
             print("ERROR")
             }
             .disposed(by: bag)
+    }
+
+    func prepareDataFor(index: Int) {
+        if popularMovies.count - index < 5 {
+            currentIndex += 1
+            loadPopularMovies()
+        }
     }
 }

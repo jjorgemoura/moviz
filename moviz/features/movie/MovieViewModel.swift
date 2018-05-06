@@ -55,14 +55,14 @@ class MovieViewModel {
     }
 
     func downloadPosterImage() {
-        service.loadPosterImage(url: posterPath).subscribe(onSuccess: { [weak self] imageData in
-            DispatchQueue.main.async {
+        service.loadPosterImage(url: posterPath)
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .observeOn(MainScheduler.instance)
+            .subscribe(onSuccess: { [weak self] imageData in
                 if let posterImage = UIImage(data: imageData, scale: 1.0) {
                     self?.image = posterImage
                     self?.delegate?.posterImageUpdated(image: posterImage)
                 }
-            }
-
         }) { error in
             print(error)
             }

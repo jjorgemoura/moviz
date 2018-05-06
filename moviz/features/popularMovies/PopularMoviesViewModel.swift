@@ -13,4 +13,5 @@ protocol PopularMoviesViewModel {
     weak var delegate: PopularMoviesViewModelDelegate? { get set }
 
     func loadPopularMovies()
+    func prepareDataFor(index: Int)
 }
