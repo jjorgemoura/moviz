@@ -9,10 +9,6 @@
 import Foundation
 import RxSwift
 
-public enum NetworkServiceError: Error {
-    case nonSuccessCode(response: HTTPURLResponse, data: Data)
-}
-
 class NetworkWebService: NetworkService {
 
     let networkDispatcher: NetworkDispatcher
@@ -26,7 +22,7 @@ class NetworkWebService: NetworkService {
             if self.isStatusCodeSuccess(response.statusCode) {
                 return try JSONDecoder().decode(T.self, from: data)
             } else {
-                throw NetworkServiceError.nonSuccessCode(response: response, data: data)
+                throw NetworkError.nonSuccessCode(response: response, data: data)
             }
         }
     }
@@ -36,7 +32,7 @@ class NetworkWebService: NetworkService {
             if self.isStatusCodeSuccess(response.statusCode) {
                 return data
             } else {
-                throw NetworkServiceError.nonSuccessCode(response: response, data: data)
+                throw NetworkError.nonSuccessCode(response: response, data: data)
             }
         }
     }

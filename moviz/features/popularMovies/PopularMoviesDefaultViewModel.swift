@@ -20,6 +20,7 @@ class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
     private var currentIndex: Int
     let service: MoviesService
     let title = "Popular Movies"
+    var errorObservable: PublishSubject<String> = PublishSubject<String>()
     var popularMovies: [MovieViewModel] = [MovieViewModel]()
 
     weak var delegate: PopularMoviesViewModelDelegate?
@@ -41,6 +42,7 @@ class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
                 self.delegate?.dataUpdated()
             }, onError: { error in
                 print(error)
+                self.errorObservable.onNext(error.localizedDescription)
             })
             .disposed(by: bag)
     }

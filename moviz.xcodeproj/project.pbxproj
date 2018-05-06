@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B4341778209FAB0C00FC8336 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4341777209FAB0C00FC8336 /* Method.swift */; };
+		B434177A209FB99B00FC8336 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4341779209FB99B00FC8336 /* NetworkError.swift */; };
+		B434177D209FC46A00FC8336 /* ViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B434177C209FC46A00FC8336 /* ViewController+.swift */; };
 		B457CB25209DA4EF008BF570 /* JsonWebRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457CB24209DA4EF008BF570 /* JsonWebRequest.swift */; };
 		B457CB28209DA92F008BF570 /* RemoteHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457CB27209DA92F008BF570 /* RemoteHost.swift */; };
 		B457CB2A209DA93C008BF570 /* ImageServiceRemoteHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457CB29209DA93C008BF570 /* ImageServiceRemoteHost.swift */; };
@@ -78,6 +80,8 @@
 
 /* Begin PBXFileReference section */
 		B4341777209FAB0C00FC8336 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
+		B4341779209FB99B00FC8336 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		B434177C209FC46A00FC8336 /* ViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ViewController+.swift"; path = "moviz/services/network/ViewController+.swift"; sourceTree = SOURCE_ROOT; };
 		B457CB24209DA4EF008BF570 /* JsonWebRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonWebRequest.swift; sourceTree = "<group>"; };
 		B457CB27209DA92F008BF570 /* RemoteHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteHost.swift; sourceTree = "<group>"; };
 		B457CB29209DA93C008BF570 /* ImageServiceRemoteHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceRemoteHost.swift; sourceTree = "<group>"; };
@@ -162,6 +166,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B434177B209FC44500FC8336 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B434177C209FC46A00FC8336 /* ViewController+.swift */,
+			);
+			name = extensions;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		B457CB26209DA90F008BF570 /* host */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +288,7 @@
 		B4A62D08206991D300C757E4 /* application */ = {
 			isa = PBXGroup;
 			children = (
+				B434177B209FC44500FC8336 /* extensions */,
 				CF54CE41206D623800A4CB38 /* utility */,
 				B4A62D09206991EB00C757E4 /* protocols */,
 				B4A62D0D206992DB00C757E4 /* AppCoordinator.swift */,
@@ -366,6 +380,7 @@
 				B457CB26209DA90F008BF570 /* host */,
 				B4C45395209D0DCB00DF7B5E /* NetworkService.swift */,
 				B4C45397209D0E9400DF7B5E /* NetworkWebService.swift */,
+				B4341779209FB99B00FC8336 /* NetworkError.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -627,6 +642,7 @@
 				B4A62CF8206990A100C757E4 /* PopularMoviesViewController.swift in Sources */,
 				B457CB28209DA92F008BF570 /* RemoteHost.swift in Sources */,
 				B4D6FBFC209F3F1200E65198 /* FilmPosterService.swift in Sources */,
+				B434177A209FB99B00FC8336 /* NetworkError.swift in Sources */,
 				B4A62D032069917500C757E4 /* MovieViewController.swift in Sources */,
 				B4A8D8B3206AF2400046C6A5 /* MovieViewModel.swift in Sources */,
 				B4C45387209CEC6000DF7B5E /* NetworkDispatcher.swift in Sources */,
@@ -638,6 +654,7 @@
 				B4A62D122069953200C757E4 /* Navigationable.swift in Sources */,
 				B4A62D152069A86E00C757E4 /* FilmData.swift in Sources */,
 				B4A8D8A9206ADF850046C6A5 /* MoviesService.swift in Sources */,
+				B434177D209FC46A00FC8336 /* ViewController+.swift in Sources */,
 				B4B00306206989CE00D0BE8A /* AppDelegate.swift in Sources */,
 				B4A62CFF2069910800C757E4 /* PopularMoviesTableViewCell.swift in Sources */,
 				B4A62D012069912700C757E4 /* PopularMoviesCoordinator.swift in Sources */,

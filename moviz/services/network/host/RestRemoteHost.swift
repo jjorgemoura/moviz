@@ -19,7 +19,6 @@ class RestRemoteHost: RemoteHost {
     }
 
     var baseURL: String = "https://api.themoviedb.org/3/"
-
     var mandatoryQueryParameters: [String: String] = {
         [QueryItemParameters.apiKey: QueryItemParameterValues.apiKey,
          QueryItemParameters.language: QueryItemParameterValues.language]
