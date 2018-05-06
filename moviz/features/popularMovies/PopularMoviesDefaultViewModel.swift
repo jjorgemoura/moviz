@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol PopularMoviesViewModelDelegate: class {
 
@@ -15,6 +16,7 @@ protocol PopularMoviesViewModelDelegate: class {
 
 class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
 
+    private let bag: DisposeBag = DisposeBag()
     var popularMovies: [MovieViewModel] = [MovieViewModel]()
     let service: MoviesService
     let title = "Popular Movies"
@@ -26,11 +28,17 @@ class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
     }
 
     func loadPopularMovies() {
-        service.retrievePopularMovies(index: 1) { [weak self] popularMoviesList in
+
+        service.retrievePopularMovies(index: 1).subscribe(onSuccess: { popularMovies in
+
             DispatchQueue.main.async {
-                self?.popularMovies = popularMoviesList.results.map { MovieViewModel.build(filmData: $0) }
-                self?.delegate?.dataUpdated()
+                self.popularMovies = popularMovies.results.map { MovieViewModel.build(filmData: $0) }
+                self.delegate?.dataUpdated()
             }
-        }
+
+        }) { _ in
+            print("ERROR")
+            }
+            .disposed(by: bag)
     }
 }

@@ -6,6 +6,7 @@
 //  Copyright © 2018 Jorge Moura. All rights reserved.
 //
 
+import RxSwift
 import UIKit
 
 protocol MovieViewModelDelegate: class {
@@ -15,7 +16,8 @@ protocol MovieViewModelDelegate: class {
 
 class MovieViewModel {
 
-    private let service: MoviesService
+    private let service: FilmPosterService
+    private let bag: DisposeBag = DisposeBag()
 
     let identifier: Int
     let title: String
@@ -30,12 +32,12 @@ class MovieViewModel {
     weak var delegate: MovieViewModelDelegate?
 
     // MARK: - Static method
-    static func build(filmData: FilmData, service: MoviesService = MoviesWebService()) -> MovieViewModel {
+    static func build(filmData: FilmData, service: FilmPosterService = FilmPosterWebService()) -> MovieViewModel {
         return MovieViewModel(film: filmData, service: service)
     }
 
     // MARK: - Initializers
-    init(film: FilmData, service: MoviesService = MoviesWebService()) {
+    init(film: FilmData, service: FilmPosterService = FilmPosterWebService()) {
         self.service = service
         self.identifier = film.identifier
         self.title = film.title
@@ -53,11 +55,17 @@ class MovieViewModel {
     }
 
     func downloadPosterImage() {
-        service.loadPosterImage(url: posterPath) { [weak self] posterImage in
+        service.loadPosterImage(url: posterPath).subscribe(onSuccess: { [weak self] imageData in
             DispatchQueue.main.async {
-                self?.image = posterImage
-                self?.delegate?.posterImageUpdated(image: posterImage)
+                if let posterImage = UIImage(data: imageData, scale: 1.0) {
+                    self?.image = posterImage
+                    self?.delegate?.posterImageUpdated(image: posterImage)
+                }
             }
-        }
+
+        }) { error in
+            print(error)
+            }
+            .disposed(by: bag)
     }
 }

@@ -59,8 +59,8 @@ class PopularMoviesTableViewCell: UITableViewCell, MovieViewModelDelegate {
         let voteAverageString = String(format: "%d%@", voteAverage, percentage)
 
         let attributedVoteAverage = NSMutableAttributedString(string: voteAverageString, attributes: colorAttribute)
-        attributedVoteAverage.addAttributes(bigFontAttribute, range: NSMakeRange(0, voteAverageString.count - percentage.count))
-        attributedVoteAverage.addAttributes(smallFontAttribute, range: NSMakeRange(voteAverageString.count - percentage.count, percentage.count))
+        attributedVoteAverage.addAttributes(bigFontAttribute, range: NSRange(location: 0, length: voteAverageString.count - percentage.count))
+        attributedVoteAverage.addAttributes(smallFontAttribute, range: NSRange(location: voteAverageString.count - percentage.count, length: percentage.count))
 
         return attributedVoteAverage
     }

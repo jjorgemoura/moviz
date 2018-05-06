@@ -46,7 +46,7 @@ typedef void (^LOTAnimationCompletionBlock)(BOOL animationFinished);
 /// Flag is YES when the animation is playing
 @property (nonatomic, readonly) BOOL isAnimationPlaying;
 
-/// Tells the animation to loop indefinitely.
+/// Tells the animation to loop indefinitely. Defaults to NO.
 @property (nonatomic, assign) BOOL loopAnimation;
 
 /// The animation will play forward and then backwards if loopAnimation is also YES
@@ -157,7 +157,7 @@ typedef void (^LOTAnimationCompletionBlock)(BOOL animationFinished);
 
  See the documentation for LOTKeypath to learn more about how to create keypaths.
 
- NOTE: The delegate is weakly retained. Be sure that the creator of a delgate is retained.
+ NOTE: The delegate is weakly retained. Be sure that the creator of a delegate is retained.
  Read More at http://airbnb.io/lottie/ios/dynamic.html
  */
 - (void)setValueDelegate:(id<LOTValueDelegate> _Nonnull)delegates

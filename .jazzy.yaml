@@ -1,10 +1,10 @@
 author: "Jorge Moura"
 author_url: http://www.jjorgemoura.com
-copyright: Copyright © 2017 Jorge Moura
+copyright: Copyright © 2018 Jorge Moura
 readme: README.md
 
-github_url: https://github.com/jjorgemoura/toscoz
-github_file_prefix: https://github.com/jjorgemoura/toscoz/tree/master
+github_url: https://github.com/jjorgemoura/moviz
+github_file_prefix: https://github.com/jjorgemoura/moviz/tree/master
 
 # root_url:
 docset_icon: fastlane/resources/docset-icon@2x.png
@@ -14,7 +14,7 @@ theme: apple
 
 sdk: iphoneos
 swift-version: 4.0
-source-directory: toscoz/
+source-directory: moviz/
 clean: true
 
 hide_documentation_coverage: false
@@ -23,6 +23,6 @@ min_acl: "internal"
 
 xcodebuild_arguments:
     - "-project"
-    - "toscoz.xcodeproj"
+    - "moviz.xcodeproj"
     - "-scheme"
-    - "toscoz"
+    - "moviz"
