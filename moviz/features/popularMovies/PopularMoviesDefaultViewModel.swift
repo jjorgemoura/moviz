@@ -17,6 +17,7 @@ protocol PopularMoviesViewModelDelegate: class {
 class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
 
     private let bag: DisposeBag = DisposeBag()
+    private let appSchedulers: AppSchedulers
     private var currentIndex: Int
     let service: MoviesService
     let title = "Popular Movies"
@@ -26,16 +27,16 @@ class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
     weak var delegate: PopularMoviesViewModelDelegate?
 
     // MARK: - Initializers
-    init(service: MoviesService = MoviesWebService()) {
+    init(service: MoviesService = MoviesWebService(), appSchedulers: AppSchedulers = ProductionAppSchedulers()) {
         self.service = service
+        self.appSchedulers = appSchedulers
         self.currentIndex = 1
     }
 
     func loadPopularMovies() {
-
         service.retrievePopularMovies(index: currentIndex)
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.instance)
+            .subscribeOn(appSchedulers.background)
+            .observeOn(appSchedulers.main)
             .subscribe(onSuccess: { popularMovies in
                 let newMovies = popularMovies.results.map { MovieViewModel.build(filmData: $0) }
                 self.popularMovies.append(contentsOf: newMovies)
