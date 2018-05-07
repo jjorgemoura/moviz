@@ -24,8 +24,8 @@ class MovieCoordinatorTests: XCTestCase {
     }
 
     // MARK: - Convenience Methods
-    private func filmData() -> FilmData {
-        return FilmData(identifier: 1,
+    private func filmData() -> MovieData {
+        return MovieData(identifier: 1,
                         title: "",
                         overview: "",
                         popularity: 2.0,

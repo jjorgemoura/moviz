@@ -9,5 +9,5 @@
 struct PopularMoviesData: Codable {
 
     let page: Int
-    let results: [FilmData]
+    let results: [MovieData]
 }

@@ -7,7 +7,11 @@
 //
 
 import Foundation
-import UIKit
+import RxSwift
+
+enum MoviesServiceError: Error {
+    case invalidCall
+}
 
 class MoviesWebService: MoviesService {
 
@@ -16,65 +20,37 @@ class MoviesWebService: MoviesService {
         static let popular: String = "popular"
     }
 
+    private enum QueryParametersKey {
+        static let page: String = "page"
+    }
+
     private let networkService: NetworkService
-    private let networkRequester: NetworkRequester
+    private let remoteHost: RemoteHost
 
     // MARK: - Initializers
-    init(networkService: NetworkService = NetworkWebService(), networkRequester: NetworkRequester = NetworkDefaultRequester()) {
+    init(networkService: NetworkService = NetworkWebService(), remoteHost: RemoteHost = RestRemoteHost()) {
         self.networkService = networkService
-        self.networkRequester = networkRequester
+        self.remoteHost = remoteHost
     }
 
-    func retrievePopularMovies(index: Int, completion: @escaping (PopularMoviesData) -> Void) {
+    func retrievePopularMovies(index: Int) -> Single<PopularMoviesData> {
         guard index >= 0 else {
-            return
+            return Single.error(MoviesServiceError.invalidCall)
         }
 
-        guard let request = networkRequester.buildRequest(for: path(forIndex: index), parameters: ["page": "1"]) else {
-            print("BAD REQUEST URL")
-            return
-        }
+        let resource = Resource.buildGet(for: path(), on: remoteHost, queryParameters: queryParameters(pageIndex: index))
+        let request = JsonWebRequest(resource: resource)
 
-        networkService.performGet(request: request) { networkResult in
-            switch networkResult {
-            case NetworkResult.ok(let data):
-                self.parse(data: data, completion: completion)
-            default:
-                print("ERROR")
-            }
-        }
-    }
-
-    func loadPosterImage(url: String, completion: @escaping (UIImage) -> Void) {
-        let fullUrl = NetworkConstants.Domain.imageServiceBaseURL + url
-        guard let request = networkRequester.request(for: fullUrl) else {
-            print("BAD REQUEST URL")
-            return
-        }
-
-        networkService.performGet(request: request) { networkResult in
-            switch networkResult {
-            case NetworkResult.ok(let data):
-                if let posterImage = UIImage(data: data, scale: 1.0) {
-                    completion(posterImage)
-                }
-            default:
-                print("ERROR")
-            }
-        }
+        return networkService.performCall(for: request)
     }
 
     // MARK: - Private methods
-    private func parse(data: Data, completion: (PopularMoviesData) -> Void) {
-        do {
-            let result = try JSONDecoder().decode(PopularMoviesData.self, from: data)
-            completion(result)
-        } catch {
-            print("Error : ", error)
-        }
+    private func path() -> String {
+        return Path.movie.appending("/").appending(Path.popular)
     }
 
-    private func path(forIndex index: Int) -> String {
-        return Path.movie.appending("/").appending(Path.popular)
+    private func queryParameters(pageIndex: Int) -> [String: String] {
+
+        return [QueryParametersKey.page: String(pageIndex)]
     }
 }

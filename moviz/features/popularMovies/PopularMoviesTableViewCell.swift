@@ -22,31 +22,23 @@ class PopularMoviesTableViewCell: UITableViewCell, MovieViewModelDelegate {
     @IBOutlet private var filmDescriptionText: UITextView!
 
     func configure(with film: MovieViewModel) {
-        if isDownloadingImage {
-            shouldCancelDownload = true
+        film.delegate = self
+        posterImageView.image = nil
+
+        if film.image == nil {
+            film.downloadPosterImage()
+        } else {
+            posterImageView.image = film.image
         }
 
         titleLabel.text = film.title
         releaseDateLabel.text = film.releaseDate
         rateLabel.attributedText = formatRate(for: film.voteAverage)
         filmDescriptionText.text = film.overview
-
-        if film.image == nil {
-            isDownloadingImage = true
-        } else {
-            posterImageView.image = nil
-        }
-
-        film.delegate = self
-        film.downloadPosterImage()
     }
 
     func posterImageUpdated(image: UIImage) {
-        if !shouldCancelDownload {
-            posterImageView.image = image
-            isDownloadingImage = false
-            shouldCancelDownload = false
-        }
+        posterImageView.image = image
     }
 
     // MARK: - Private methods
@@ -59,8 +51,8 @@ class PopularMoviesTableViewCell: UITableViewCell, MovieViewModelDelegate {
         let voteAverageString = String(format: "%d%@", voteAverage, percentage)
 
         let attributedVoteAverage = NSMutableAttributedString(string: voteAverageString, attributes: colorAttribute)
-        attributedVoteAverage.addAttributes(bigFontAttribute, range: NSMakeRange(0, voteAverageString.count - percentage.count))
-        attributedVoteAverage.addAttributes(smallFontAttribute, range: NSMakeRange(voteAverageString.count - percentage.count, percentage.count))
+        attributedVoteAverage.addAttributes(bigFontAttribute, range: NSRange(location: 0, length: voteAverageString.count - percentage.count))
+        attributedVoteAverage.addAttributes(smallFontAttribute, range: NSRange(location: voteAverageString.count - percentage.count, length: percentage.count))
 
         return attributedVoteAverage
     }

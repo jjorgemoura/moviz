@@ -8,55 +8,36 @@
 
 @testable import moviz
 import XCTest
-
-private class FakeMovieService: MoviesService {
-
-    func retrievePopularMovies(index: Int, completion: @escaping (PopularMoviesData) -> Void) {
-        let popularMoviesData = PopularMoviesData(page: 1, results: [filmData()])
-        completion(popularMoviesData)
-    }
-
-    func loadPosterImage(url: String, completion: @escaping (UIImage) -> Void) { }
-
-    private func filmData() -> FilmData {
-        return FilmData(identifier: 1,
-                        title: "",
-                        overview: "",
-                        popularity: 2.0,
-                        posterPath: "",
-                        releaseDate: "2018-02-02",
-                        voteAverage: 2.0)
-    }
-}
+import RxSwift
 
 class PopularMoviesDefaultViewModelTests: XCTestCase {
 
-    private var fakeMovieService: FakeMovieService!
-    var expectation: XCTestExpectation!
-
-    override func setUp() {
-        super.setUp()
-        fakeMovieService = FakeMovieService()
-    }
-
     func testViewModelLoadPopularFilms() {
-        expectation = expectation(description: "Popular Movies ViewModel load films from Service Expectation")
-        let viewModel = PopularMoviesDefaultViewModel(service: fakeMovieService)
-        viewModel.delegate = self
+        let fakeNetworkDispatcher = FakeNetworkDispatcher()
+        fakeNetworkDispatcher.dataEncoded = try! JSONEncoder().encode(retrievePopularMovies())
+
+        let networkService = NetworkWebService(networkDispatcher: fakeNetworkDispatcher)
+        let movieService = MoviesWebService(networkService: networkService, remoteHost: FakeRemoteHost())
+
+        let viewModel = PopularMoviesDefaultViewModel(service: movieService, appSchedulers: TestingAppSchedulers())
 
         viewModel.loadPopularMovies()
 
-        waitForExpectations(timeout: 5) { error in
-            if let error = error {
-                XCTFail(error.localizedDescription)
-            }
-        }
+        let movie = viewModel.popularMovies.first!
+        XCTAssertEqual(movie.title, "Star Wars")
     }
-}
 
-extension PopularMoviesDefaultViewModelTests: PopularMoviesViewModelDelegate {
+    private func retrievePopularMovies() -> PopularMoviesData {
+        return PopularMoviesData(page: 1, results: [movieData()])
+    }
 
-    func dataUpdated() {
-        expectation.fulfill()
+    private func movieData() -> MovieData {
+        return MovieData(identifier: 1,
+                         title: "Star Wars",
+                         overview: "",
+                         popularity: 2.0,
+                         posterPath: "",
+                         releaseDate: "2018-02-02",
+                         voteAverage: 2.0)
     }
 }

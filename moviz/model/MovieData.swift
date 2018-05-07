@@ -6,7 +6,7 @@
 //  Copyright © 2018 Jorge Moura. All rights reserved.
 //
 
-struct FilmData: Codable {
+struct MovieData: Codable {
 
     let identifier: Int
     let title: String

@@ -6,6 +6,7 @@
 //  Copyright © 2018 Jorge Moura. All rights reserved.
 //
 
+import RxSwift
 import UIKit
 
 protocol PopularMoviesViewControllerDelegate: class {
@@ -14,6 +15,7 @@ protocol PopularMoviesViewControllerDelegate: class {
 
 class PopularMoviesViewController: UITableViewController {
 
+    private let bag: DisposeBag = DisposeBag()
     var viewModel: PopularMoviesViewModel?
     weak var delegate: PopularMoviesViewControllerDelegate?
 
@@ -26,6 +28,7 @@ class PopularMoviesViewController: UITableViewController {
         }
 
         title = viewModel?.title
+        configureBindings()
         viewModel?.loadPopularMovies()
     }
 
@@ -51,6 +54,21 @@ class PopularMoviesViewController: UITableViewController {
         if let item = viewModel?.popularMovies[indexPath.row] {
             delegate?.didSelect(item)
         }
+    }
+
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        viewModel?.prepareDataFor(index: indexPath.row)
+    }
+
+    private func configureBindings() {
+        viewModel?.errorObservable
+            .asObservable()
+            .subscribe(onNext: { errorMessage in
+                self.presentAlert(with: errorMessage)
+            }, onError: { errorX in
+                print(errorX)
+            })
+        .disposed(by: bag)
     }
 }
 

@@ -6,6 +6,7 @@
 //  Copyright © 2018 Jorge Moura. All rights reserved.
 //
 
+import RxSwift
 import UIKit
 
 protocol MovieViewModelDelegate: class {
@@ -15,7 +16,9 @@ protocol MovieViewModelDelegate: class {
 
 class MovieViewModel {
 
-    private let service: MoviesService
+    private let service: FilmPosterService
+    private let bag: DisposeBag = DisposeBag()
+    private let appSchedulers: AppSchedulers
 
     let identifier: Int
     let title: String
@@ -30,13 +33,14 @@ class MovieViewModel {
     weak var delegate: MovieViewModelDelegate?
 
     // MARK: - Static method
-    static func build(filmData: FilmData, service: MoviesService = MoviesWebService()) -> MovieViewModel {
+    static func build(filmData: MovieData, service: FilmPosterService = FilmPosterWebService()) -> MovieViewModel {
         return MovieViewModel(film: filmData, service: service)
     }
 
     // MARK: - Initializers
-    init(film: FilmData, service: MoviesService = MoviesWebService()) {
+    init(film: MovieData, service: FilmPosterService = FilmPosterWebService(), appSchedulers: AppSchedulers = ProductionAppSchedulers()) {
         self.service = service
+        self.appSchedulers = appSchedulers
         self.identifier = film.identifier
         self.title = film.title
         self.overview = film.overview
@@ -53,11 +57,17 @@ class MovieViewModel {
     }
 
     func downloadPosterImage() {
-        service.loadPosterImage(url: posterPath) { [weak self] posterImage in
-            DispatchQueue.main.async {
-                self?.image = posterImage
-                self?.delegate?.posterImageUpdated(image: posterImage)
-            }
-        }
+        service.loadPosterImage(url: posterPath)
+            .subscribeOn(appSchedulers.background)
+            .observeOn(appSchedulers.main)
+            .subscribe(onSuccess: { [weak self] imageData in
+                if let posterImage = UIImage(data: imageData, scale: 1.0) {
+                    self?.image = posterImage
+                    self?.delegate?.posterImageUpdated(image: posterImage)
+                }
+            }, onError: { error in
+                print(error)
+            })
+            .disposed(by: bag)
     }
 }

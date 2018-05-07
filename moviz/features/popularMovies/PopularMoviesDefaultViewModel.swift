@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol PopularMoviesViewModelDelegate: class {
 
@@ -15,22 +16,42 @@ protocol PopularMoviesViewModelDelegate: class {
 
 class PopularMoviesDefaultViewModel: PopularMoviesViewModel {
 
-    var popularMovies: [MovieViewModel] = [MovieViewModel]()
+    private let bag: DisposeBag = DisposeBag()
+    private let appSchedulers: AppSchedulers
+    private var currentIndex: Int
     let service: MoviesService
     let title = "Popular Movies"
+    var errorObservable: PublishSubject<String> = PublishSubject<String>()
+    var popularMovies: [MovieViewModel] = [MovieViewModel]()
+
     weak var delegate: PopularMoviesViewModelDelegate?
 
     // MARK: - Initializers
-    init(service: MoviesService = MoviesWebService()) {
+    init(service: MoviesService = MoviesWebService(), appSchedulers: AppSchedulers = ProductionAppSchedulers()) {
         self.service = service
+        self.appSchedulers = appSchedulers
+        self.currentIndex = 1
     }
 
     func loadPopularMovies() {
-        service.retrievePopularMovies(index: 1) { [weak self] popularMoviesList in
-            DispatchQueue.main.async {
-                self?.popularMovies = popularMoviesList.results.map { MovieViewModel.build(filmData: $0) }
-                self?.delegate?.dataUpdated()
-            }
+        service.retrievePopularMovies(index: currentIndex)
+            .subscribeOn(appSchedulers.background)
+            .observeOn(appSchedulers.main)
+            .subscribe(onSuccess: { popularMovies in
+                let newMovies = popularMovies.results.map { MovieViewModel.build(filmData: $0) }
+                self.popularMovies.append(contentsOf: newMovies)
+                self.delegate?.dataUpdated()
+            }, onError: { error in
+                print(error)
+                self.errorObservable.onNext(error.localizedDescription)
+            })
+            .disposed(by: bag)
+    }
+
+    func prepareDataFor(index: Int) {
+        if popularMovies.count - index < 5 {
+            currentIndex += 1
+            loadPopularMovies()
         }
     }
 }
